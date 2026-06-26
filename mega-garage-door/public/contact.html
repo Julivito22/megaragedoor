@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Mega Garage Door & Gates</title>
+  <meta name="description" content="Contact Mega Garage Door & Gates. Same-day service in South Florida. Call (954) 287-2788 or request a free estimate online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    /* ── Contact page specific ── */
+    .contact-body {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+    .contact-body .container {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Form card */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 44px 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-form-card h2 {
+      font-size: 1.5rem; font-weight: 900; color: var(--dark);
+      letter-spacing: -0.025em; margin-bottom: 6px;
+    }
+    .contact-form-card .sub {
+      color: var(--gray); font-size: 0.88rem; margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .f-group {
+      margin-bottom: 16px;
+    }
+    .f-group label {
+      display: block;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--dark-2);
+      margin-bottom: 7px;
+    }
+    .f-group input,
+    .f-group select,
+    .f-group textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit; font-size: 0.9rem;
+      background: var(--primary-light);
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.18s, background 0.18s;
+      -webkit-appearance: none; appearance: none;
+      resize: vertical;
+    }
+    .f-group input:focus,
+    .f-group select:focus,
+    .f-group textarea:focus {
+      border-color: var(--primary); background: var(--white);
+    }
+    .f-group input::placeholder,
+    .f-group textarea::placeholder { color: #9ab08c; }
+    .f-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2375bf4e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
+    }
+    .f-group textarea { min-height: 120px; }
+    .contact-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none; border-radius: var(--radius);
+      font-family: inherit; font-size: 0.88rem;
+      font-weight: 800; letter-spacing: 0.09em;
+      text-transform: uppercase; cursor: pointer;
+      transition: background 0.18s, transform 0.18s;
+      margin-top: 6px;
+    }
+    .contact-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .contact-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+    /* Info sidebar */
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .info-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+    .info-card-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .info-icon {
+      width: 40px; height: 40px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .info-card h3 {
+      font-size: 0.85rem; font-weight: 800; color: var(--dark);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .info-card p, .info-card a {
+      font-size: 0.88rem; color: var(--gray); line-height: 1.7;
+      text-decoration: none;
+    }
+    .info-card a { color: var(--primary); font-weight: 600; }
+    .info-card a:hover { color: var(--primary-dark); }
+    .hours-mini { list-style: none; }
+    .hours-mini li {
+      display: flex; justify-content: space-between;
+      font-size: 0.83rem; padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hours-mini li:last-child { border-bottom: none; }
+    .hours-mini .day { color: var(--gray); }
+    .hours-mini .time { color: var(--dark-2); font-weight: 600; }
+    .hours-mini .emrg { color: var(--accent); font-weight: 700; }
+    .emergency-banner {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .emergency-banner h3 {
+      font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 8px;
+    }
+    .emergency-banner p { color: rgba(255,255,255,0.65); font-size: 0.82rem; margin-bottom: 16px; }
+    .emergency-banner a {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 12px 24px; border-radius: var(--radius);
+      font-weight: 700; font-size: 0.85rem; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .emergency-banner a:hover { background: var(--accent-dark); }
+
+    @media (max-width: 960px) {
+      .contact-body .container { grid-template-columns: 1fr; }
+      .contact-info { order: -1; display: grid; grid-template-columns: 1fr 1fr; }
+      .emergency-banner { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .contact-form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="left">
+      <span>Licensed &amp; Insured</span>
+      <span class="sep">·</span><span>Broward</span>
+      <span class="sep">·</span><span>Miami-Dade</span>
+      <span class="sep">·</span><span>Palm Beach</span>
+    </div>
+    <a href="tel:9542872788">(954) 287-2788</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-mega">MEGA</span>
+        <span class="logo-sub">Garage Door &amp; Gates</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/areas">Areas</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="tel:9542872788" class="btn btn-accent">Call Now</a>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span><span>Contact</span>
+    </div>
+    <div class="eyebrow" style="color:var(--accent);letter-spacing:.18em;">Get In Touch</div>
+    <h1>Contact <span>Mega Garage</span><br>Door &amp; Gates</h1>
+    <p>We respond within the hour. For emergencies, call directly — we're available 24/7.</p>
+  </div>
+</div>
+
+<!-- CONTACT BODY -->
+<section class="contact-body">
+  <div class="container">
+
+    <!-- LEFT: Form -->
+    <div class="contact-form-card">
+      <h2>Request a Free Estimate</h2>
+      <p class="sub">Fill out the form and we'll reach out within the hour to confirm your appointment.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="f-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="f-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(954) 000-0000" required>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com">
+        </div>
+        <div class="form-row">
+          <div class="f-group">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service…</option>
+              <option value="garage-door">Garage Door</option>
+              <option value="electric-gates">Electric Gates</option>
+              <option value="motor-repair">Motor Repair</option>
+              <option value="intercom-systems">Intercom Systems</option>
+              <option value="fence-services">Fence Services</option>
+              <option value="custom-gate">Custom Gate Fabrication</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="urgency">Urgency</label>
+            <select id="urgency" name="urgency">
+              <option value="asap">As soon as possible</option>
+              <option value="today">Today</option>
+              <option value="this-week">This week</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="message">Message / Description</label>
+          <textarea id="message" name="message" placeholder="Describe the issue or what you need — any details help us prepare…"></textarea>
+        </div>
+        <button type="submit" class="contact-submit" id="contactBtn">Send Request</button>
+      </form>
+    </div>
+
+    <!-- RIGHT: Info sidebar -->
+    <div class="contact-info">
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">📞</div>
+          <h3>Call Us</h3>
+        </div>
+        <a href="tel:9542872788" style="font-size:1.2rem;font-weight:900;">(954) 287-2788</a>
+        <p style="margin-top:6px;">Available 24/7 for emergencies.<br>Regular calls answered 7am–8pm daily.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">📍</div>
+          <h3>Our Location</h3>
+        </div>
+        <p>3725 Pembroke Rd, Unit A14<br>Hollywood, FL 33021</p>
+        <p style="margin-top:10px;"><a href="https://maps.google.com/?q=3725+Pembroke+Rd+Hollywood+FL" target="_blank" rel="noopener">Get Directions →</a></p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">🕐</div>
+          <h3>Business Hours</h3>
+        </div>
+        <ul class="hours-mini">
+          <li><span class="day">Monday – Friday</span><span class="time">7am – 8pm</span></li>
+          <li><span class="day">Saturday</span><span class="time">8am – 6pm</span></li>
+          <li><span class="day">Sunday</span><span class="time">9am – 5pm</span></li>
+          <li><span class="day emrg">Emergency Line</span><span class="time emrg">24 / 7</span></li>
+        </ul>
+      </div>
+
+      <div class="emergency-banner">
+        <h3>🚨 Need Emergency Service?</h3>
+        <p>Stuck garage door? Gate won't open? We have technicians on call right now.</p>
+        <a href="tel:9542872788">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Call (954) 287-2788
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat"><span class="stat-num">10+</span><span class="stat-lbl">Years of Experience</span></div>
+    <div class="stat"><span class="stat-num">5,200+</span><span class="stat-lbl">Projects Per Year</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Counties Covered</span></div>
+    <div class="stat"><span class="stat-num">24/7</span><span class="stat-lbl">Emergency Service</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mega">MEGA</span><span class="logo-sub">Garage Door &amp; Gates</span></a>
+        <p>South Florida's trusted garage door and gate specialists. Licensed, insured, and available around the clock.</p>
+        <p class="footer-addr">3725 Pembroke Rd, Unit A14,<br>Hollywood FL 33021</p>
+        <div class="footer-phone"><a href="tel:9542872788">(954) 287-2788</a></div>
+      </div>
+      <div>
+        <h4 class="f-heading">Services</h4>
+        <ul class="f-list">
+          <li><a href="/services#garage-door">Garage Door</a></li>
+          <li><a href="/services#electric-gates">Electric Gates</a></li>
+          <li><a href="/services#motor-repair">Motor Repair</a></li>
+          <li><a href="/services#intercom-systems">Intercom Systems</a></li>
+          <li><a href="/services#fence-services">Fence Services</a></li>
+          <li><a href="/services#custom-gate">Custom Gate Fabrication</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="f-heading">Hours</h4>
+        <div class="f-hours-row"><span class="day">Mon – Fri</span><span class="time">7am – 8pm</span></div>
+        <div class="f-hours-row"><span class="day">Saturday</span><span class="time">8am – 6pm</span></div>
+        <div class="f-hours-row"><span class="day">Sunday</span><span class="time">9am – 5pm</span></div>
+        <div class="f-hours-row emrg"><span class="day">Emergency</span><span class="time">24/7</span></div>
+      </div>
+      <div>
+        <h4 class="f-heading">Quick Links</h4>
+        <ul class="f-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/areas">Areas</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Mega Garage Door &amp; Gates. All rights reserved. Licensed &amp; Insured.</span>
+      <span>Serving Broward · Miami-Dade · Palm Beach</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:9542872788" class="float-cta">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  Call Now
+</a>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <h3>Request Received!</h3>
+    <p>Thanks! A specialist will call you within the hour to confirm your appointment. For immediate service, call <strong>(954) 287-2788</strong>.</p>
+    <button class="modal-close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/shared.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = document.getElementById('contactBtn');
+
+    const name    = form.name.value.trim();
+    const phone   = form.phone.value.trim();
+    const email   = form.email.value.trim();
+    const service = form.service.value;
+    const urgency = form.urgency.value;
+    const message = form.message.value.trim();
+
+    if (!name)    { showToast('Please enter your name.', 'error'); return; }
+    if (!phone)   { showToast('Please enter your phone number.', 'error'); return; }
+    if (!service) { showToast('Please select a service.', 'error'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/estimate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, service, urgency, message })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        form.reset();
+        document.getElementById('modal').classList.add('show');
+      } else {
+        showToast(data.error || 'Something went wrong. Please call us.', 'error');
+      }
+    } catch {
+      form.reset();
+      document.getElementById('modal').classList.add('show');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Request';
+    }
+  });
+</script>
+</body>
+</html>

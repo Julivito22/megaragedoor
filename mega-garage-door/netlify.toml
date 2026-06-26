@@ -1,0 +1,30 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# ── Clean URLs (sin .html) ───────────────────────────────
+[[redirects]]
+  from = "/services"
+  to   = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to   = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/areas"
+  to   = "/areas.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to   = "/contact.html"
+  status = 200
+
+# ── API → Netlify Function ───────────────────────────────
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/api/:splat"
+  status = 200

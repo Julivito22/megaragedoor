@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Mega Garage Door & Gates</title>
+  <meta name="description" content="Over 10 years serving South Florida. Licensed, insured, and trusted by thousands of homeowners and businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    /* ── About page specific ── */
+    .about-story {
+      padding: 88px 0;
+      background: var(--white);
+    }
+    .about-story .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-wrap img {
+      width: 100%; height: 480px; object-fit: cover; display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 24px; right: 24px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 14px;
+      padding: 18px 22px;
+      text-align: center;
+      min-width: 110px;
+    }
+    .about-badge .n { display: block; font-size: 2.4rem; font-weight: 900; color: var(--primary); line-height: 1; }
+    .about-badge .l { display: block; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-top: 5px; }
+    .story-content h2 {
+      font-size: clamp(1.6rem,2.8vw,2.2rem);
+      font-weight: 900; color: var(--dark);
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .story-content p {
+      color: var(--gray); line-height: 1.85;
+      margin-bottom: 16px; font-size: 0.95rem;
+    }
+    .story-content .lead {
+      font-size: 1.05rem; font-weight: 600; color: var(--dark-2);
+      border-left: 4px solid var(--primary);
+      padding-left: 18px;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    /* ── Values ── */
+    .values {
+      padding: 88px 0;
+      background: var(--primary-light);
+    }
+    .values-hdr {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 28px;
+    }
+    .val-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .val-icon {
+      width: 60px; height: 60px;
+      background: var(--primary-light);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      margin: 0 auto 20px;
+    }
+    .val-card h3 {
+      font-size: 1.05rem; font-weight: 800; color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .val-card p { color: var(--gray); font-size: 0.87rem; line-height: 1.72; }
+
+    /* ── Why us grid ── */
+    .why-grid {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .why-grid .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why-grid h2 {
+      font-size: clamp(1.6rem,2.8vw,2.2rem);
+      font-weight: 900; color: var(--dark);
+      letter-spacing: -0.025em; margin-bottom: 18px;
+    }
+    .why-grid p { color: var(--gray); line-height: 1.82; margin-bottom: 30px; font-size: 0.95rem; }
+    .why-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      margin-bottom: 38px;
+    }
+    .why-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem; font-weight: 600; color: var(--dark-2);
+    }
+    .why-list li::before {
+      content: '✓';
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px;
+      background: var(--primary); color: #fff;
+      border-radius: 50%; font-size: 0.6rem; font-weight: 900; flex-shrink: 0;
+    }
+    .why-grid img {
+      width: 100%; height: 460px; object-fit: cover;
+      border-radius: 18px; box-shadow: var(--shadow-lg);
+    }
+
+    /* ── Certifications ── */
+    .certs {
+      padding: 64px 0;
+      background: var(--dark);
+      text-align: center;
+    }
+    .certs h3 {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+    .certs-row {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;
+    }
+    .cert-item {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .cert-item::before {
+      content: '★';
+      color: var(--primary); font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-story .container,
+      .why-grid .container { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .why-list { grid-template-columns: 1fr; }
+      .about-img-wrap img { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="left">
+      <span>Licensed &amp; Insured</span>
+      <span class="sep">·</span>
+      <span>Broward</span>
+      <span class="sep">·</span>
+      <span>Miami-Dade</span>
+      <span class="sep">·</span>
+      <span>Palm Beach</span>
+    </div>
+    <a href="tel:9542872788">(954) 287-2788</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-mega">MEGA</span>
+        <span class="logo-sub">Garage Door &amp; Gates</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/areas">Areas</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="tel:9542872788" class="btn btn-accent">Call Now</a>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span><span>About</span>
+    </div>
+    <div class="eyebrow" style="color:var(--accent);letter-spacing:.18em;">Who We Are</div>
+    <h1>About <span>Mega Garage</span><br>Door &amp; Gates</h1>
+    <p>A decade of trust, thousands of happy customers, and a team that shows up when it counts — day or night.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="about-story">
+  <div class="container">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80" alt="Mega Garage Door technician">
+      <div class="about-badge">
+        <span class="n">10+</span>
+        <span class="l">Years<br>Serving FL</span>
+      </div>
+    </div>
+    <div class="story-content">
+      <span class="eyebrow">Our Story</span>
+      <h2>Built on Reliability,<br>Driven by Craft</h2>
+      <p class="lead">We started as a one-truck operation in Hollywood, FL with a simple promise: show up on time, fix it right, and charge a fair price.</p>
+      <p>Over the past decade, that promise has earned us the trust of thousands of homeowners, property managers, and commercial businesses across Broward, Miami-Dade, and Palm Beach counties.</p>
+      <p>Today, Mega Garage Door &amp; Gates is South Florida's go-to team for garage door repair, electric gate installation, motor service, intercom systems, fencing, and custom metalwork — all under one roof, with licensed and insured technicians on call around the clock.</p>
+      <p>We don't subcontract. Every job is handled by our own trained team, using quality parts and standing behind every installation with a warranty.</p>
+      <a href="/contact" class="btn btn-green" style="margin-top:10px;">Get a Free Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container">
+    <div class="values-hdr">
+      <span class="eyebrow">What Drives Us</span>
+      <h2 class="section-title">Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-icon">🤝</div>
+        <h3>Honesty First</h3>
+        <p>We diagnose accurately and tell you exactly what's needed — nothing more. Our estimates are free and our quotes always match the final invoice.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">⚡</div>
+        <h3>Speed &amp; Reliability</h3>
+        <p>Same-day service is our standard, not an upsell. We keep parts stocked on our trucks so we can complete most repairs in a single visit.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🛡️</div>
+        <h3>Quality Guaranteed</h3>
+        <p>We use manufacturer-grade parts and stand behind every job. If something isn't right, we come back and make it right — at no additional cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-grid">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>South Florida's Trusted Specialists</h2>
+      <p>We're not a franchise. We're a local team that cares about the community we serve. Every technician is background-checked, trained, and proud to represent the Mega name.</p>
+      <ul class="why-list">
+        <li>Licensed &amp; Fully Insured</li>
+        <li>Same-Day Emergency Response</li>
+        <li>Free Estimates on All Work</li>
+        <li>Broward, Miami-Dade &amp; Palm Beach</li>
+        <li>Residential &amp; Commercial</li>
+        <li>All Major Brands Serviced</li>
+        <li>No Hidden Fees — Ever</li>
+        <li>Warranty on All Repairs</li>
+      </ul>
+      <a href="/contact" class="btn btn-accent">Request a Free Estimate</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80" alt="South Florida garage door service">
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<div class="certs">
+  <div class="container">
+    <h3>Certifications &amp; Affiliations</h3>
+    <div class="certs-row">
+      <div class="cert-item">Florida Licensed Contractor</div>
+      <div class="cert-item">LiftMaster Certified Dealer</div>
+      <div class="cert-item">Chamberlain Authorized</div>
+      <div class="cert-item">IDEA Member</div>
+      <div class="cert-item">BBB Accredited Business</div>
+      <div class="cert-item">Fully Insured — General Liability</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat"><span class="stat-num">10+</span><span class="stat-lbl">Years of Experience</span></div>
+    <div class="stat"><span class="stat-num">5,200+</span><span class="stat-lbl">Projects Per Year</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Counties Covered</span></div>
+    <div class="stat"><span class="stat-num">24/7</span><span class="stat-lbl">Emergency Service</span></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Work With Us?</h2>
+    <p>Call now or request a free estimate — we'll respond within the hour.</p>
+    <div class="cta-btns">
+      <a href="tel:9542872788" class="btn btn-accent">(954) 287-2788</a>
+      <a href="/contact" class="btn btn-outline-white">Free Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mega">MEGA</span><span class="logo-sub">Garage Door &amp; Gates</span></a>
+        <p>South Florida's trusted garage door and gate specialists. Licensed, insured, and available around the clock.</p>
+        <p class="footer-addr">3725 Pembroke Rd, Unit A14,<br>Hollywood FL 33021</p>
+        <div class="footer-phone"><a href="tel:9542872788">(954) 287-2788</a></div>
+      </div>
+      <div>
+        <h4 class="f-heading">Services</h4>
+        <ul class="f-list">
+          <li><a href="/services#garage-door">Garage Door</a></li>
+          <li><a href="/services#electric-gates">Electric Gates</a></li>
+          <li><a href="/services#motor-repair">Motor Repair</a></li>
+          <li><a href="/services#intercom-systems">Intercom Systems</a></li>
+          <li><a href="/services#fence-services">Fence Services</a></li>
+          <li><a href="/services#custom-gate">Custom Gate Fabrication</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="f-heading">Hours</h4>
+        <div class="f-hours-row"><span class="day">Mon – Fri</span><span class="time">7am – 8pm</span></div>
+        <div class="f-hours-row"><span class="day">Saturday</span><span class="time">8am – 6pm</span></div>
+        <div class="f-hours-row"><span class="day">Sunday</span><span class="time">9am – 5pm</span></div>
+        <div class="f-hours-row emrg"><span class="day">Emergency</span><span class="time">24/7</span></div>
+      </div>
+      <div>
+        <h4 class="f-heading">Quick Links</h4>
+        <ul class="f-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/areas">Areas</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 Mega Garage Door &amp; Gates. All rights reserved. Licensed &amp; Insured.</span>
+      <span>Serving Broward · Miami-Dade · Palm Beach</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:9542872788" class="float-cta">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  Call Now
+</a>
+<div class="toast" id="toast"></div>
+<script src="/shared.js"></script>
+</body>
+</html>
